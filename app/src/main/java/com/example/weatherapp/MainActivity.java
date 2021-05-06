@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             DownloadTask task = new DownloadTask();
             String encodedCityName = URLEncoder.encode(editText.getText().toString(), "UTF-8");
 
-            task.execute("http://api.openweathermap.org/data/2.5/weather?q=" + encodedCityName + "&appid=3e948bb71b08bd3d6f2bb4cf2367a25c\n");
+            task.execute("http://api.openweathermap.org/data/2.5/weather?q="+encodedCityName+" &appid=3e948bb71b08bd3d6f2bb4cf2367a25c\n");
 
             InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             mgr.hideSoftInputFromWindow(editText.getWindowToken(), 0);
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @SuppressLint("StaticFieldLeak")
+
     public class DownloadTask extends AsyncTask<String,Void,String> {
 
         @Override
