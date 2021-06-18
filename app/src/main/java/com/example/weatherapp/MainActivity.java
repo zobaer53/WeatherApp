@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             DownloadTask task = new DownloadTask();
             String encodedCityName = URLEncoder.encode(editText.getText().toString(), "UTF-8");
 
-            task.execute("http://api.openweathermap.org/data/2.5/weather?q="+encodedCityName+" &appid=3e948bb71b08bd3d6f2bb4cf2367a25c\n");
+            task.execute("https://api.openweathermap.org/data/2.5/weather?q="+encodedCityName+" &appid=3e948bb71b08bd3d6f2bb4cf2367a25c\n");
 
             InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             mgr.hideSoftInputFromWindow(editText.getWindowToken(), 0);
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         protected String doInBackground(String... urls) {
             String result = "";
             URL url;
-            HttpURLConnection urlConnection = null;
+            HttpURLConnection urlConnection;
 
             try {
 
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             } catch (Exception e) {
                 e.printStackTrace();
 
-               Toast.makeText(getApplicationContext(),"Could not find weather :(",Toast.LENGTH_SHORT).show();
+             //  Toast.makeText(getApplicationContext(),"Could not find weather :(",Toast.LENGTH_SHORT).show();
 
                 return null;
             }
